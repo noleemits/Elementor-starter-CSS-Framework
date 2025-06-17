@@ -1,0 +1,382 @@
+/* ============================================
+Elementor Utility CSS Framework v1.7
+Modular CSS system for WordPress sites
+Author: Lee (Noleemits)
+============================================ */
+
+/* ===============================
+Variables
+================================ */
+:root {
+  --primary-color: #ac1d3e;
+  --secondary-color: #1c2c3e;
+  --tertiary-color: #e0e0e0;
+  --e-p-border-con: var(--primary-color);
+  --space-sm: clamp(1.25rem, 2.5vw, 2rem);
+  --space-md: clamp(2rem, 4vw, 3.5rem);
+  --space-lg: clamp(3rem, 6vw, 6.25rem);
+  --img-border-spacing: 1.5rem;
+  --link-transition: 0.25s ease-in-out;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ===============================
+   ✨ Global Link Animation (Excludes Admin & Nav)
+================================ */
+body:not(.wp-admin) .elementor-widget:not(.elementor-nav-menu) a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--link-transition);
+}
+body:not(.wp-admin) .elementor-widget:not(.elementor-nav-menu) a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--primary-color);
+  transition: width var(--link-transition);
+}
+body:not(.wp-admin) .elementor-widget:not(.elementor-nav-menu) a:hover::after {
+  width: 100%;
+}
+
+
+/* ===============================
+   ✍ Typography Utilities
+================================ */
+.font-h1 .elementor-heading-title,
+.font-h1 p,
+.font-h1 .elementor-image-box-title {
+  font-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+}
+.font-h2 .elementor-heading-title,
+.font-h2 p,
+.font-h2 .elementor-image-box-title {
+  font-size: clamp(1.875rem, 2.727vw + 1.364rem, 3.75rem);
+}
+.font-h3 .elementor-heading-title,
+.font-h3 p,
+.font-h3 .elementor-image-box-title {
+  font-size: clamp(1.5rem, 1vw + 1.313rem, 2.188rem);
+}
+.font-h4 .elementor-heading-title,
+.font-h4 p,
+.font-h4 .elementor-image-box-title {
+  font-size: clamp(1.25rem, 0.9vw + 1rem, 1.75rem);
+}
+.font-h5 .elementor-heading-title,
+.font-h5 p,
+.font-h5 .elementor-image-box-title {
+  font-size: clamp(1.125rem, 0.5vw + 0.9rem, 1.5rem);
+}
+.font-h6 .elementor-heading-title,
+.font-h6 p,
+.font-h6 .elementor-image-box-title {
+  font-size: clamp(1rem, 0.3vw + 0.85rem, 1.25rem);
+}
+.font-small-title {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.182vw + 0.966rem, 1.125rem);
+}
+
+
+/* ===============================
+Color Utilities
+================================ */
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.text-tertiary { color: var(--tertiary-color); }
+
+.bg-primary { background-color: var(--primary-color); }
+.bg-secondary { background-color: var(--secondary-color); }
+.bg-tertiary { background-color: var(--tertiary-color); }
+
+.hover-primary:hover { color: var(--primary-color); }
+.hover-white:hover { color: #fff; }
+.hover-bg-primary:hover { background-color: var(--primary-color); }
+
+/* Filter utilities */
+.filter-primary img,
+.color-to-primary img {
+  filter: invert(18%) sepia(48%) saturate(7208%) hue-rotate(348deg) brightness(66%) contrast(82%);
+}
+.filter-white img { filter: brightness(0) invert(1); }
+.filter-black img { filter: brightness(0) contrast(100%); }
+
+
+/* ===============================
+Spacing Utilities
+================================ */
+.space-block { padding-block: var(--space-lg); }
+.space-block-half { padding-block: var(--space-md); }
+.space-top { padding-top: var(--space-lg); }
+.space-bottom-half { padding-bottom: var(--space-md); }
+
+
+/* ===============================
+Image Utilities
+================================ */
+.aspect-1-1 img,
+.aspect-1-1 figure img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+.aspect-4-3 img,
+.aspect-4-3 figure img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+.aspect-16-9 img,
+.aspect-16-9 figure img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+.aspect-3-2 img,
+.aspect-3-2 figure img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+/* Flip images */
+.flip-horizontal img { transform: scaleX(-1); }
+.flip-vertical img { transform: scaleY(-1); }
+.flip-both img { transform: scale(-1, -1); }
+
+/* Flip background images */
+.flip-bg-horizontal { transform: scaleX(-1); }
+.flip-bg-vertical { transform: scaleY(-1); }
+
+/* Image Borders (Default: primary) */
+.image-border-left,
+.image-border-right {
+  position: relative;
+  display: inline-block;
+}
+.image-border-left {
+  padding-top: var(--img-border-spacing);
+  padding-bottom: var(--img-border-spacing);
+  padding-left: var(--img-border-spacing);
+}
+.image-border-right {
+  padding-top: var(--img-border-spacing);
+  padding-bottom: var(--img-border-spacing);
+  padding-right: var(--img-border-spacing);
+}
+.image-border-left .elementor-widget-container,
+.image-border-right .elementor-widget-container {
+  position: relative;
+  z-index: 2;
+}
+.image-border-left::before,
+.image-border-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: var(--primary-color);
+  z-index: 1;
+  pointer-events: none;
+}
+.image-border-left::before {
+  left: 0;
+  right: unset;
+}
+.image-border-right::after {
+  right: 0;
+  left: unset;
+}
+.image-border-left img,
+.image-border-right img {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Border color variants */
+.image-border-left-sec::before,
+.image-border-right-sec::after {
+  background-color: var(--secondary-color);
+}
+.image-border-left-ter::before,
+.image-border-right-ter::after {
+  background-color: var(--tertiary-color);
+}
+
+/* ===============================
+Shadow Utilities
+================================ */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+.shadow-primary {
+  box-shadow: 0 0 12px var(--primary-color);
+}
+.shadow-inset {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+.shadow-none {
+  box-shadow: none !important;
+}
+
+/* Shadow only on hover */
+.hover-shadow-sm {
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+.hover-shadow-sm:hover {
+  box-shadow: var(--shadow-sm);
+}
+.hover-shadow-md {
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+.hover-shadow-md:hover {
+  box-shadow: var(--shadow-md);
+}
+.hover-shadow-lg {
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+.hover-shadow-lg:hover {
+  box-shadow: var(--shadow-lg);
+}
+.hover-shadow-xl {
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+.hover-shadow-xl:hover {
+  box-shadow: var(--shadow-xl);
+}
+.hover-shadow-primary {
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+.hover-shadow-primary:hover {
+  box-shadow: 0 0 12px var(--primary-color);
+}
+
+
+/* ===============================
+Button Styles
+================================ */
+.btn {
+  background: transparent;
+  border: 2px solid;
+  padding: 0.75em 1.25em;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+.btn-white { border-color: #fff; color: #fff; }
+.btn-primary { border-color: var(--primary-color); color: var(--primary-color); }
+.btn-gray { border-color: gray; color: gray; }
+
+
+/* ===============================
+List Styles
+================================ */
+.list-primary ul li::marker {
+  color: var(--primary-color);
+}
+.list-icon ul {
+  list-style: none;
+  padding-left: 0 !important;
+  padding-inline-start: 0 !important;
+  margin-left: 0 !important;
+}
+.list-icon ul li::before {
+  content: url('icon-url.svg'); /* Change to actual icon */
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+
+/* ===============================
+Component Tweaks
+================================ */
+.elementor-widget-text-editor p:last-child {
+  margin-bottom: 0;
+}
+.elementor-button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+
+/* ===============================
+Responsive Utilities
+================================ */
+@media (max-width: 767px) {
+  .hide-text-mobile .elementor-icon-list-text {
+    display: none !important;
+  }
+  .mobile-space-top { padding-top: var(--space-md); }
+}
+@media (min-width: 768px) {
+  .desktop-space-top { padding-top: var(--space-lg); }
+}
+
+
+/* ===============================
+Placeholder Components (Extendable)
+================================ */
+.container-cta p {
+  color: var(--e-global-color-c6d2508); /* example global var */
+}
+.container-cta:hover {
+  background-color: var(--primary-color);
+}
+.container-cta:hover p,
+.container-cta:hover .elementor-heading-title {
+  color: #fff;
+}
+.container-cta:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.button-underline a {
+  position: relative;
+}
+.button-underline a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0;
+  background-color: var(--primary-color);
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+.button-underline a:hover::after {
+  width: 85%;
+}
