@@ -90,6 +90,30 @@ body:not(.wp-admin) .elementor-widget:not(.elementor-nav-menu) a:hover::after {
 
 
 /* ===============================
+Text Utilities
+================================ */
+
+@keyframes textShine {
+0% {
+	background-position: 0% 50%;
+   }
+100% {
+          background-position: 100% 50%;
+ }
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #1f4cee 20%, #00affa 30%, #0084ff 70%, #1f4cee 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+    padding-top: 10px;
+}
+
+/* ===============================
 Color Utilities
 ================================ */
 .text-primary { color: var(--primary-color); }
