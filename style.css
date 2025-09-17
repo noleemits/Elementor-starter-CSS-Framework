@@ -140,11 +140,20 @@ Color Utilities
 /* ===============================
 Spacing Utilities
 ================================ */
-.space-block { padding-block: var(--space-lg); }
-.space-block-half { padding-block: var(--space-md); }
-.space-top { padding-top: var(--space-lg); }
-.space-bottom-half { padding-bottom: var(--space-md); }
+/* Block (top + bottom together) */
+.space-block-sm   { padding-block: var(--space-sm); }
+.space-block-md   { padding-block: var(--space-md); }
+.space-block-lg   { padding-block: var(--space-lg); }
 
+/* Top only */
+.space-top-sm     { padding-top: var(--space-sm); }
+.space-top-md     { padding-top: var(--space-md); }
+.space-top-lg     { padding-top: var(--space-lg); }
+
+/* Bottom only */
+.space-bottom-sm  { padding-bottom: var(--space-sm); }
+.space-bottom-md  { padding-bottom: var(--space-md); }
+.space-bottom-lg  { padding-bottom: var(--space-lg); }
 
 /* ===============================
 Image Utilities
