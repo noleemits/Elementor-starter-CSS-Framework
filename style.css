@@ -429,3 +429,24 @@ Placeholder Components (Extendable)
 .button-underline a:hover::after {
   width: 85%;
 }
+
+
+/*Send CTA buttons to the bottom*/
+/* Make the anchor fill the grid item */
+.elementor-widget-call-to-action .elementor-cta {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Make the content area grow to fill available space */
+.elementor-cta__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Push the button to the bottom */
+.elementor-cta__button-wrapper {
+  margin-top: auto;
+}
